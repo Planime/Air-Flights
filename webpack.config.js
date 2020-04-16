@@ -9,7 +9,10 @@ let isDev = process.env.NODE_ENV === 'production'
 module.exports = {
     context: path.resolve(__dirname, "src"),
     //mode: "development",
-    entry: "./js/index.js",
+    entry: {
+        polyfill: 'babel-polyfill',
+        app: './js/app.js'
+    },
 
     output: {
         filename: "bundle.[hash].js",

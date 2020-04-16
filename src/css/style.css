@@ -4,3 +4,7 @@ h1 {
     font-family: "Liu";
     color: green;
 }
+
+.header {
+    text-align: center;
+}
