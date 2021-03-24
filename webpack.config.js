@@ -9,10 +9,10 @@ let isDev = process.env.NODE_ENV === 'production'
 module.exports = {
     context: path.resolve(__dirname, "src"),
     //mode: "development",
-    entry: {
-        polyfill: 'babel-polyfill',
-        app: './js/app.js'
-    },
+    entry: [
+        'babel-polyfill',
+        './js/app.js'
+    ],
 
     output: {
         filename: "bundle.[hash].js",
@@ -70,8 +70,8 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
+                test: /\.js$/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {

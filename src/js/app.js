@@ -1,6 +1,14 @@
 
 import '../css/style.css'
-import api  from './services/apiService'
+import locations from './store/locations'
 
-console.log(api.countries())
-console.log(api.cities())
+
+
+locations.init().then(res => {
+    console.log(res);
+    console.log(locations);
+    console.log(locations.getCitiesByCountryCode("PE"))
+});
+
+
+

@@ -11,25 +11,25 @@ class Api {
         this.url = config.url;
     }
 
-     countries() {
+     async countries() {
         try {
-            const response = fetch(`${this.url}/countries`)
-                .then(data => data.json())
-                .then(data => data)
+            const response = await fetch(`${this.url}/countries`)
+            let res = await response.json()
+            // console.log(res)
+            return res
 
-            return response
+
         } catch (error) {
             return Promise.reject(error)
         }
 
     }
 
-     cities() {
+     async cities() {
         try {
-            const response = fetch(`${this.url}/cities`)
-                .then(data => data.json())
-                .then(data => data);
-            return response
+            const response = await fetch(`${this.url}/cities`)
+                let res = await response.json()
+            return res
         } catch (error) {
             return Promise.reject(error)
         }
@@ -38,6 +38,5 @@ class Api {
 }
 
 const api = new Api(config);
-
 
 export default api
